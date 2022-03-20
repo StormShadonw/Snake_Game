@@ -36,7 +36,17 @@ if __name__ == '__main__':
 #///////////////////////Detect collision with food//////////////////////////////
         if snake.head.distance(food) < 15:
             print("hey")
+            scoreboard.increase_points()
+            snake.increase_snake()
+            snake.change_snake_color()
             food.refresh()
+        if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+            game_on = False
+
+        for turtle in snake.turtles[1:-1]:
+            if snake.head.distance(turtle) < 10:
+                game_on = False
+    scoreboard.game_over()
 
 
     screen.exitonclick()
