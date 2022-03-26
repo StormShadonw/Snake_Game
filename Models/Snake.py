@@ -63,4 +63,11 @@ class Snake:
             self.turtles[turtle_index].goto(new_x, new_y)
         self.head.forward(MOVE_DISTANCE)
 
+    def reset(self):
+        for turtle in self.turtles:
+            turtle.goto(1000,1000)
+        self.turtles.clear()
+        self.create_snake()
+        self.head = self.turtles[0]
+
 

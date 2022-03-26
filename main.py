@@ -41,12 +41,13 @@ if __name__ == '__main__':
             snake.change_snake_color()
             food.refresh()
         if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-            game_on = False
+            scoreboard.reset()
+            snake.reset()
 
         for turtle in snake.turtles[1:-1]:
             if snake.head.distance(turtle) < 10:
-                game_on = False
-    scoreboard.game_over()
+                scoreboard.reset()
+                snake.reset()
 
 
     screen.exitonclick()
